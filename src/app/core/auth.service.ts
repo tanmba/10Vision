@@ -2,12 +2,15 @@ import { Injectable } from "@angular/core";
 import 'rxjs/add/operator/toPromise';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import {AngularFirestoreDocument, AngularFirestore} from "angularfire2/firestore";
+import {FirebaseUserModel} from "./user.model";
 
 @Injectable()
 export class AuthService {
 
   constructor(
-   public afAuth: AngularFireAuth
+   private afAuth: AngularFireAuth,
+   private db: AngularFirestore
  ){}
 
   doFacebookLogin(){
@@ -54,13 +57,22 @@ export class AuthService {
     })
   }
 
-  doRegister(value){
+  doRegister(value) {
     return new Promise<any>((resolve, reject) => {
-      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
-      .then(res => {
-        resolve(res);
+      this.afAuth.auth.createUserWithEmailAndPassword(value.email, value.password)
+      .then(data => {
+        this.updateUserData(data);
+        resolve(data);
       }, err => reject(err))
     })
+  }
+
+  async doSignUp(value) {
+    return await this.afAuth.auth.createUserWithEmailAndPassword(value.email, value.password).then(
+      (data) => {
+        console.log(data.user);
+      }
+    )
   }
 
   doLogin(value){
@@ -75,13 +87,28 @@ export class AuthService {
   doLogout(){
     return new Promise((resolve, reject) => {
       if(firebase.auth().currentUser){
-        this.afAuth.auth.signOut()
+        this.afAuth.auth.signOut();
         resolve();
       }
       else{
         reject();
       }
     });
+  }
+
+  private updateUserData(user) {
+    const userRef: AngularFirestoreDocument<FirebaseUserModel> = this.db.doc(
+      `users/${user.uid}`
+    );
+
+    const data: FirebaseUserModel = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName || 'Utilisateur',
+      photoUrl: user.photoUrl || `https://api.adorable.io/avatars/285/${user.uid}`
+    };
+
+    return userRef.set(data, { merge: true });
   }
 
 

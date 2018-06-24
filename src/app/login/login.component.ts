@@ -55,7 +55,7 @@ export class LoginComponent {
       this.router.navigate(['/user']);
     }, err => {
       console.log(err);
-      this.errorMessage = err.message;
+      this.errorMessage = 'Entrez des informations valides';
     })
   }
 }
