@@ -1,0 +1,37 @@
+.search {
+  overflow: hidden;
+  padding: 20px;
+  height: 100vh;
+
+  .header {
+    a {
+      cursor: pointer;
+    }
+
+    img {
+      width: 15%;
+    }
+  }
+
+  h1 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .search-content {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 30px 20px;
+    margin-top: 70px;
+
+    button {
+      margin-top: 50px;
+      display: block;
+      background: #4a4949;
+      border: none;
+      height: 40px;
+    }
+  }
+}

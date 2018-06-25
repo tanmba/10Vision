@@ -19,6 +19,10 @@ import { UserListComponent } from './user-list/user-list.component';
 import { HomeComponent } from './home/home.component';
 
 import { MnFullpageModule } from 'ngx-fullpage';
+import { SearchComponent } from './search/search.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +32,13 @@ import { MnFullpageModule } from 'ngx-fullpage';
     RegisterComponent,
     UserListComponent,
     HomeComponent,
+    SearchComponent,
+    NavComponent,
   ],
   imports: [
     MnFullpageModule.forRoot(),
     BrowserModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: false }),
     AngularFireModule.initializeApp(environment.firebase),

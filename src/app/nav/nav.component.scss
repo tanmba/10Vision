@@ -1,0 +1,25 @@
+nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.3);
+
+  ul {
+    display: flex;
+    padding: 0;
+    height: 100%;
+    justify-content: center;
+
+    li {
+      list-style-type: none;
+      width: 30%;
+      text-align: center;
+
+      a {
+        color: #fff;
+      }
+    }
+  }
+}

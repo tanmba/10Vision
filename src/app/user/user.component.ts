@@ -12,41 +12,31 @@ import { FirebaseUserModel } from '../core/user.model';
   styleUrls: ['user.scss']
 })
 export class UserComponent implements OnInit{
-
-  user: FirebaseUserModel = new FirebaseUserModel();
-  profileForm: FormGroup;
+  users: any;
+  currentUser: FirebaseUserModel;
 
   constructor(
-    public userService: UserService,
     public authService: AuthService,
-    private route: ActivatedRoute,
     private location : Location,
-    private fb: FormBuilder
+    private userService: UserService
   ) {
 
   }
 
   ngOnInit(): void {
-    this.route.data.subscribe(routeData => {
-      let data = routeData['data'];
-      if (data) {
-        this.user = data;
-        this.createForm(this.user.displayName);
-      }
+    this.getCurrentUser();
+  }
+
+  getUsers() {
+    this.userService.getUsers().subscribe(users => {
+      this.users = users;
     })
   }
 
-  createForm(name) {
-    this.profileForm = this.fb.group({
-      name: [name, Validators.required ]
-    });
-  }
-
-  save(value){
-    this.userService.updateCurrentUser(value)
-    .then(res => {
-      console.log(res);
-    }, err => console.log(err))
+  getCurrentUser() {
+    this.authService.user$.subscribe(user => {
+      this.currentUser = user;
+    })
   }
 
   logout(){

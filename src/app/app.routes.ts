@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './core/auth.guard';
 import {UserListComponent} from "./user-list/user-list.component";
 import {HomeComponent} from "./home/home.component";
+import {SearchComponent} from "./search/search.component";
 
 export const rootRouterConfig: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' }, //home redirection
@@ -13,5 +14,6 @@ export const rootRouterConfig: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'user', component: UserComponent },
-  { path: 'users', component: UserListComponent}
+  { path: 'users', component: UserListComponent},
+  { path: 'search', component: SearchComponent}
 ];

@@ -1,0 +1,19 @@
+<div class="search">
+  <div class="header">
+    <a routerLink="/"><img src="../../assets/imgs/Logo_rouge_sansnom.png"></a>
+  </div>
+
+  <h1>Trouvez votre Gabi</h1>
+
+  <div class="search-content">
+    <label for="area">Lieu</label>
+    <input id="area" placeholder="ex : Paris">
+    <button type="submit">Valider</button>
+  </div>
+
+  <div *ngFor="let user of users" class="search-results">
+    {{ user.email }}
+  </div>
+
+  <app-nav></app-nav>
+</div>

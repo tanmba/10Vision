@@ -4,14 +4,28 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import {AngularFirestoreDocument, AngularFirestore} from "angularfire2/firestore";
 import {FirebaseUserModel} from "./user.model";
+import {of} from "rxjs";
+import {switchMap} from "rxjs/operators";
 
 @Injectable()
 export class AuthService {
+  user$: FirebaseUserModel;
 
   constructor(
    private afAuth: AngularFireAuth,
    private db: AngularFirestore
- ){}
+ ){
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap(user => {
+        console.log(user);
+        if (user) {
+          return this.db.doc<FirebaseUserModel>(`users/${user.uid}`).valueChanges();
+        } else {
+          return of(null);
+        }
+      })
+    );
+  }
 
   doFacebookLogin(){
     return new Promise<any>((resolve, reject) => {
