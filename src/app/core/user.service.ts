@@ -44,6 +44,18 @@ export class UserService {
     )
   }
 
+  getUsersByCity(): Observable<FirebaseUserModel> {
+    return this.collection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as FirebaseUserModel;
+          data.uid = a.payload.doc.id;
+          return data;
+        });
+      })
+    )
+  }
+
   updateCurrentUser(value){
     return new Promise((resolve, reject) => {
       var user = firebase.auth().currentUser;

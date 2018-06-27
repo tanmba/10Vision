@@ -40,11 +40,6 @@ export class UserComponent implements OnInit{
   }
 
   logout(){
-    this.authService.doLogout()
-    .then((res) => {
-      this.location.back();
-    }, (error) => {
-      console.log("Logout error", error);
-    });
+    this.authService.doLogout();
   }
 }

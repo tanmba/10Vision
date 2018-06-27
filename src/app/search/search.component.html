@@ -6,13 +6,49 @@
   <h1>Trouvez votre Gabi</h1>
 
   <div class="search-content">
-    <label for="area">Lieu</label>
-    <input id="area" placeholder="ex : Paris">
-    <button type="submit">Valider</button>
-  </div>
+    <select (change)="getUserByCity($event.target.value)">
+      <option>Choisis une ville</option>
+      <option value="1">Paris</option>
+      <option value="2">Toulouse</option>
+      <option value="3">Nantes</option>
+      <option value="4">Montpelier</option>
+    </select>
 
-  <div *ngFor="let user of users" class="search-results">
-    {{ user.email }}
+    <div *ngIf="showParis">
+      <div *ngFor="let user of usersCityParis;">
+        <p>{{ user.email }}</p>
+        <p>{{ user.nickName }}</p>
+        <p>{{ user.username }}</p>
+        <p>{{ user.city }}</p>
+      </div>
+    </div>
+
+    <div *ngIf="showToulouse">
+      <div *ngFor="let user of usersCityToulouse">
+        <p>{{ user.email }}</p>
+        <p>{{ user.nickName }}</p>
+        <p>{{ user.username }}</p>
+        <p>{{ user.city }}</p>
+      </div>
+    </div>
+
+    <div *ngIf="showNantes">
+      <div *ngFor="let user of usersCityNantes">
+        <p>{{ user.email }}</p>
+        <p>{{ user.nickName }}</p>
+        <p>{{ user.username }}</p>
+        <p>{{ user.city }}</p>
+      </div>
+    </div>
+
+    <div *ngIf="showMontpelier">
+      <div *ngFor="let user of usersCityMontpelier">
+        <p>{{ user.email }}</p>
+        <p>{{ user.nickName }}</p>
+        <p>{{ user.username }}</p>
+        <p>{{ user.city }}</p>
+      </div>
+    </div>
   </div>
 
   <app-nav></app-nav>

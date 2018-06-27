@@ -3,4 +3,6 @@ export class FirebaseUserModel {
   email: string;
   photoUrl: string;
   displayName: string;
+  nickName: string;
+  city: string;
 }

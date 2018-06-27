@@ -4,8 +4,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import {AngularFirestoreDocument, AngularFirestore} from "angularfire2/firestore";
 import {FirebaseUserModel} from "./user.model";
-import {of} from "rxjs";
 import {switchMap} from "rxjs/operators";
+import {of} from "rxjs/observable/of";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class AuthService {
@@ -13,11 +14,11 @@ export class AuthService {
 
   constructor(
    private afAuth: AngularFireAuth,
-   private db: AngularFirestore
+   private db: AngularFirestore,
+   private router: Router
  ){
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
-        console.log(user);
         if (user) {
           return this.db.doc<FirebaseUserModel>(`users/${user.uid}`).valueChanges();
         } else {
@@ -32,8 +33,17 @@ export class AuthService {
       let provider = new firebase.auth.FacebookAuthProvider();
       this.afAuth.auth
       .signInWithPopup(provider)
-      .then(res => {
-        resolve(res);
+      .then(data => {
+        const isNewUser = data.additionalUserInfo.isNewUser;
+
+        if (isNewUser) {
+          this.updateUserData(data.user).then(() => {
+            this.router.navigateByUrl('/user');
+          });
+        } else {
+          this.router.navigateByUrl('/user');
+        }
+        resolve(data);
       }, err => {
         console.log(err);
         reject(err);
@@ -62,8 +72,17 @@ export class AuthService {
       provider.addScope('email');
       this.afAuth.auth
       .signInWithPopup(provider)
-      .then(res => {
-        resolve(res);
+      .then(data => {
+        const isNewUser = data.additionalUserInfo.isNewUser;
+
+        if (isNewUser) {
+          this.updateUserData(data.user).then(() => {
+            this.router.navigateByUrl('/user');
+          });
+        } else {
+          this.router.navigateByUrl('/user');
+        }
+        resolve(data);
       }, err => {
         console.log(err);
         reject(err);
@@ -71,11 +90,15 @@ export class AuthService {
     })
   }
 
-  doRegister(value) {
+  doRegister(val) {
+
+    const nickName = val.nickName;
+    const city = val.city;
+
     return new Promise<any>((resolve, reject) => {
-      this.afAuth.auth.createUserWithEmailAndPassword(value.email, value.password)
+      this.afAuth.auth.createUserWithEmailAndPassword(val.email, val.password)
       .then(data => {
-        this.updateUserData(data);
+        this.updateUserData(data, nickName, city);
         resolve(data);
       }, err => reject(err))
     })
@@ -99,18 +122,13 @@ export class AuthService {
   }
 
   doLogout(){
-    return new Promise((resolve, reject) => {
-      if(firebase.auth().currentUser){
-        this.afAuth.auth.signOut();
-        resolve();
-      }
-      else{
-        reject();
-      }
-    });
+    this.afAuth.auth.signOut()
+      .then(res => {
+        this.router.navigate(['/home']);
+      },err => console.log(err))
   }
 
-  private updateUserData(user) {
+  private updateUserData(user, nickName, city) {
     const userRef: AngularFirestoreDocument<FirebaseUserModel> = this.db.doc(
       `users/${user.uid}`
     );
@@ -119,7 +137,9 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName || 'Utilisateur',
-      photoUrl: user.photoUrl || `https://api.adorable.io/avatars/285/${user.uid}`
+      photoUrl: user.photoUrl || `https://api.adorable.io/avatars/285/${user.uid}`,
+      nickName: nickName || 'Anonyme',
+      city: city || 'Pas de ville',
     };
 
     return userRef.set(data, { merge: true });

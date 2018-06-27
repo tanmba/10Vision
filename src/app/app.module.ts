@@ -23,6 +23,9 @@ import { SearchComponent } from './search/search.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
+import { SearchPipe } from './pipes/search.pipe';
+import { FormsModule }   from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ import { NavComponent } from './nav/nav.component';
     HomeComponent,
     SearchComponent,
     NavComponent,
+    SearchPipe,
   ],
   imports: [
     MnFullpageModule.forRoot(),
@@ -43,7 +47,8 @@ import { NavComponent } from './nav/nav.component';
     RouterModule.forRoot(rootRouterConfig, { useHash: false }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    FormsModule
   ],
   providers: [AuthService, UserService, AuthGuard],
   bootstrap: [AppComponent]
