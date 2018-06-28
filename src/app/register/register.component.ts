@@ -13,6 +13,13 @@ export class RegisterComponent {
   registerForm: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
+  loginForm: FormGroup;
+  showLogin: false;
+  showRegister: true;
+  loadRegister: false;
+  loadLogin: false;
+  isActive = false;
+
 
   constructor(
     public authService: AuthService,
@@ -20,16 +27,59 @@ export class RegisterComponent {
     private fb: FormBuilder
   ) {
     this.createForm();
+    this.createFormLogin();
    }
+
+  ngOnInit() {
+    this.showRegister = true;
+  }
+
+  loadRegisterComponent() {
+    this.showRegister = !this.showRegister;
+    this.loadRegister = !this.loadRegister;
+  }
+
+  loadLoginComponent() {
+    this.showLogin = !this.showLogin;
+    this.loadLogin = !this.loadLogin;
+  }
+
+   showLoginComponent() {
+    this.showLogin = !this.showLogin;
+    this.showRegister = false;
+    this.loadRegister = false;
+    this.isActive = !this.isActive;
+   }
+
+  showRegisterComponent() {
+    this.loadLogin = false;
+    this.showRegister = true;
+    this.showLogin = false;
+    this.isActive = !this.isActive;
+  }
+
+  goingBack() {
+    this.loadRegister = false;
+    this.loadLogin = false;
+    this.showRegister = true;
+  }
 
    createForm() {
      this.registerForm = this.fb.group({
        email: ['', [Validators.email, Validators.required]],
        password: ['',[Validators.required]],
        nickName: ['', [Validators.minLength(6), Validators.required]],
+       displayName: ['', [Validators.minLength(6), Validators.required]],
        city: ['', [Validators.minLength(4), Validators.required]]
      });
    }
+
+  createFormLogin() {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required ],
+      password: ['',Validators.required]
+    });
+  }
 
    tryFacebookLogin(){
      this.authService.doFacebookLogin()
@@ -71,4 +121,13 @@ export class RegisterComponent {
      })
    }
 
+  tryLogin(value){
+    this.authService.doLogin(value)
+      .then(res => {
+        this.router.navigate(['/user']);
+      }, err => {
+        console.log(err);
+        this.errorMessage = 'Entrez des informations valides';
+      })
+  }
 }

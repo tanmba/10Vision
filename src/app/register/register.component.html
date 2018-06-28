@@ -1,49 +1,106 @@
-<h1 class="header">Create an account with Firebase or Social Providers</h1>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <form [formGroup]="registerForm" (ngSubmit)="tryRegister()">
-        <div class="form-group">
-          <label>Email address</label>
-          <input type="email" formControlName="email" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Nom</label>
-          <input type="text" formControlName="nickName" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Ville</label>
-          <select formControlName="city" class="form-control">
-            <option>Choisis ta ville</option>
-            <option>Paris</option>
-            <option>Toulouse</option>
-            <option>Nantes</option>
-            <option>Montpelier</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" class="form-control" formControlName="password">
-          <label class="error">{{errorMessage}}</label>
-          <label class="success">{{successMessage}}</label>
-        </div>
-        <button type="submit" [disabled]="registerForm.invalid" class="btn btn-default">Register</button>
-      </form>
-    </div>
+<div class="register">
+  <div class="header">
+    <a routerLink="/"><img src="../../assets/imgs/Logo-gabi-white.svg"></a>
   </div>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <button type="button" class="btn btn-primary btn-block" (click)="tryFacebookLogin()">Register with Facebook</button>
+
+  <div class="contain">
+    <ul class="register-nav">
+      <li><a [ngClass]="{'active': !isActive}" (click)="showRegisterComponent()">Inscription</a></li>
+      <li><a [ngClass]="{'active': isActive}" (click)="showLoginComponent()">Connexion</a></li>
+    </ul>
+
+    <!--Register-->
+    <div *ngIf="showRegister" class="register-links">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <button type="button" class="btn btn-facebook btn-block" (click)="tryFacebookLogin()"><img src="../../assets/imgs/facebook-logo.png">S'inscrire avec Facebook</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <button type="button" class="btn btn-google btn-block" (click)="tryGoogleLogin()"><img src="../../assets/imgs/google-plus.svg">S'inscrire avec Google</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <button type="button" class="btn btn-email btn-block" (click)="loadRegisterComponent()">Inscription avec email</button>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <button type="button" class="btn btn-danger btn-block" (click)="tryGoogleLogin()">Register with Google</button>
+
+    <div *ngIf="loadRegister" class="container">
+      <a (click)="goingBack()" class="back-arrow"><img src="../../assets/imgs/left-arrow.svg"></a>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form [formGroup]="registerForm" (ngSubmit)="tryRegister()">
+            <div class="form-group">
+              <input placeholder="Nom" type="text" formControlName="displayName" class="form-control">
+            </div>
+            <div class="form-group">
+              <input placeholder="Prénom" type="text" formControlName="nickName" class="form-control">
+            </div>
+            <div class="form-group">
+              <input placeholder="Votre email" type="email" formControlName="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <select formControlName="city" class="form-control">
+                <option disabled selected>Votre ville</option>
+                <option>Paris</option>
+                <option>Toulouse</option>
+                <option>Nantes</option>
+                <option>Montpelier</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input placeholder="Mot de passe" type="password" class="form-control" formControlName="password">
+              <label class="error">{{errorMessage}}</label>
+              <label class="success">{{successMessage}}</label>
+            </div>
+            <div class="form-group">
+              <button type="submit" [disabled]="registerForm.invalid" class="btn btn-valid">Valider</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <p>Already have an account? <a routerLink="/login">Login</a></p>
+
+    <!--Login-->
+    <div *ngIf="showLogin" class="register-links">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <button type="button" class="btn btn-facebook btn-block" (click)="tryFacebookLogin()"><img src="../../assets/imgs/facebook-logo.png">Se connecter avec Facebook</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <button type="button" class="btn btn-google btn-block" (click)="tryGoogleLogin()"><img src="../../assets/imgs/google-plus.svg">Se connecter avec Google</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <button type="button" class="btn btn-email btn-block" (click)="loadLoginComponent()">Connexion avec email</button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="loadLogin" class="container">
+      <a (click)="goingBack()" class="back-arrow"><img src="../../assets/imgs/left-arrow.svg"></a>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form [formGroup]="loginForm">
+            <div class="form-group">
+              <input placeholder="Votre email" type="email" formControlName="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input placeholder="Mot de passe" type="password" class="form-control" formControlName="password">
+              <label class="error">{{errorMessage}}</label>
+            </div>
+            <div class="form-group">
+              <button type="submit" (click)="tryLogin(loginForm.value)" class="btn btn-valid">Valider</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -98,11 +98,12 @@ export class AuthService {
 
     const nickName = val.nickName;
     const city = val.city;
+    const displayName = val.displayName;
 
     return new Promise<any>((resolve, reject) => {
       this.afAuth.auth.createUserWithEmailAndPassword(val.email, val.password)
       .then(data => {
-        this.updateUserData(data, nickName, city);
+        this.updateUserData(data, nickName, city, displayName);
         resolve(data);
       }, err => reject(err))
     })
