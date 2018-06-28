@@ -7,16 +7,20 @@ import {FirebaseUserModel} from "./user.model";
 import {switchMap} from "rxjs/operators";
 import {of} from "rxjs/observable/of";
 import {Router} from "@angular/router";
+import {UserService} from "../core/user.service";
 
 @Injectable()
 export class AuthService {
   user$: FirebaseUserModel;
+  currentUser: FirebaseUserModel;
 
   constructor(
    private afAuth: AngularFireAuth,
    private db: AngularFirestore,
-   private router: Router
- ){
+   private router: Router,
+  private userService: UserService
+
+){
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
@@ -38,10 +42,10 @@ export class AuthService {
 
         if (isNewUser) {
           this.updateUserData(data.user).then(() => {
-            this.router.navigateByUrl('/user');
+            this.router.navigateByUrl('/register-city');
           });
         } else {
-          this.router.navigateByUrl('/user');
+          this.router.navigateByUrl('/register-city');
         }
         resolve(data);
       }, err => {
@@ -77,10 +81,10 @@ export class AuthService {
 
         if (isNewUser) {
           this.updateUserData(data.user).then(() => {
-            this.router.navigateByUrl('/user');
+            this.router.navigateByUrl('/register-city');
           });
         } else {
-          this.router.navigateByUrl('/user');
+          this.router.navigateByUrl('/register-city');
         }
         resolve(data);
       }, err => {
@@ -101,6 +105,19 @@ export class AuthService {
         this.updateUserData(data, nickName, city);
         resolve(data);
       }, err => reject(err))
+    })
+  }
+
+  doUpdate(val) {
+
+    const city = val.city;
+
+    return new Promise<any>((resolve, reject) => {
+      this.userService.getCurrentUser()
+        .then(data => {
+          this.updateUserData(data, city);
+          resolve(data);
+        }, err => reject(err))
     })
   }
 

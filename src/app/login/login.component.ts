@@ -31,7 +31,7 @@ export class LoginComponent {
   tryFacebookLogin(){
     this.authService.doFacebookLogin()
     .then(res => {
-      this.router.navigate(['/user']);
+      this.router.navigate(['/register-city']);
     })
   }
 
@@ -45,7 +45,7 @@ export class LoginComponent {
   tryGoogleLogin(){
     this.authService.doGoogleLogin()
     .then(res => {
-      this.router.navigate(['/user']);
+      this.router.navigate(['/register-city']);
     })
   }
 

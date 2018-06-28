@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { FormsModule }   from '@angular/forms';
+import { RegisterCityComponent } from './register-city/register-city.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { FormsModule }   from '@angular/forms';
     SearchComponent,
     NavComponent,
     SearchPipe,
+    RegisterCityComponent,
   ],
   imports: [
     MnFullpageModule.forRoot(),

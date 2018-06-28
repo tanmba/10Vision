@@ -1,0 +1,13 @@
+<form [formGroup]="registerForm" (ngSubmit)="updateCurrentUserCity()">
+  <div class="form-group">
+    <label>Ville</label>
+    <select formControlName="city" class="form-control">
+      <option>Choisis ta ville</option>
+      <option>Paris</option>
+      <option>Toulouse</option>
+      <option>Nantes</option>
+      <option>Montpelier</option>
+    </select>
+  </div>
+  <button type="submit" [disabled]="registerForm.invalid" class="btn btn-default">Ajouter</button>
+</form>
