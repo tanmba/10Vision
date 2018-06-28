@@ -26,6 +26,7 @@ import { NavComponent } from './nav/nav.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { FormsModule }   from '@angular/forms';
 import { RegisterCityComponent } from './register-city/register-city.component';
+import { GabisParisComponent } from './gabis-paris/gabis-paris.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { RegisterCityComponent } from './register-city/register-city.component';
     NavComponent,
     SearchPipe,
     RegisterCityComponent,
+    GabisParisComponent,
   ],
   imports: [
     MnFullpageModule.forRoot(),

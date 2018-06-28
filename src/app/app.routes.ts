@@ -8,6 +8,7 @@ import {UserListComponent} from "./user-list/user-list.component";
 import {HomeComponent} from "./home/home.component";
 import {SearchComponent} from "./search/search.component";
 import {RegisterCityComponent} from "./register-city/register-city.component";
+import {GabisParisComponent} from "./gabis-paris/gabis-paris.component";
 
 
 export const rootRouterConfig: Routes = [
@@ -18,5 +19,5 @@ export const rootRouterConfig: Routes = [
   { path: 'user', component: UserComponent },
   { path: 'users', component: UserListComponent},
   { path: 'search', component: SearchComponent},
-  { path: 'register-city', component: RegisterCityComponent}
+  { path: 'gabis-paris', component: GabisParisComponent}
 ];

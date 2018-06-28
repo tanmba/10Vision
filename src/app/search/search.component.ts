@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../core/user.service";
-import { Subject } from 'rxjs/Subject';
-import { debounceTime } from 'rxjs/operators/debounceTime';
 import {FormGroup, FormBuilder} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-search',
@@ -30,7 +29,8 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -42,40 +42,14 @@ export class SearchComponent implements OnInit {
       this.users = users;
 
       if (data === '1') {
-        this.getUsersByCityParis();
-        this.showNantes = false;
-        this.showToulouse = false;
-        this.showMontpelier = false;
+        this.router.navigateByUrl('/gabis-paris');
       } else if (data === '2') {
         this.getUsersByCityToulouse()
-        this.showNantes = false;
-        this.showParis = false;
-        this.showMontpelier = false;
       } else if (data === '3') {
         this.getUsersByCityNantes()
-        this.showToulouse = false;
-        this.showParis = false;
-        this.showMontpelier = false;
       } else if (data === '4') {
         this.getUsersByCityMontpelier()
-        this.showToulouse = false;
-        this.showParis = false;
-        this.showNantes = false;
       }
-    })
-  }
-
-  getUsersByCityParis() {
-    this.userService.getUsersByCity().subscribe(users => {
-      this.users = users;
-      const usersFilter = () => {
-        return users.filter((el) =>
-          el.city == 'Paris'
-        );
-      }
-      this.usersCityParis = usersFilter();
-      this.showParis = !this.showParis
-      console.log(this.usersCityParis)
     })
   }
 
@@ -89,7 +63,6 @@ export class SearchComponent implements OnInit {
       }
       this.usersCityToulouse = usersFilter();
       this.showToulouse = !this.showMarseille
-      console.log(this.usersCityToulouse)
     })
   }
 
@@ -103,7 +76,6 @@ export class SearchComponent implements OnInit {
       }
       this.usersCityNantes = usersFilter();
       this.showNantes = !this.showNantes
-      console.log(this.usersCityNantes)
     })
   }
 
@@ -117,11 +89,6 @@ export class SearchComponent implements OnInit {
       }
       this.usersCityMontpelier = usersFilter();
       this.showMontpelier = !this.showMontpelier
-      console.log(this.usersCityMontpelier)
     })
-  }
-
-  trackByFn(index) {
-    return index;
   }
 }

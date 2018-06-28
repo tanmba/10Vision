@@ -1,55 +1,51 @@
 <div class="search">
   <div class="header">
-    <a routerLink="/"><img src="../../assets/imgs/Logo_rouge_sansnom.png"></a>
+    <a routerLink="/"><img src="../../assets/imgs/Logo-gabi-white.svg"></a>
+    <p>Les bons colocs font<br> les bons amis ! </p>
   </div>
 
-  <h1>Trouvez votre Gabi</h1>
+  <div class="contain">
+    <h1>Où cherchez-vous<br> votre Gabi ?</h1>
+    <div class="search-content">
+      <select (change)="getUserByCity($event.target.value)">
+        <option>Choisis une ville</option>
+        <option value="1">Paris</option>
+        <option value="2">Toulouse</option>
+        <option value="3">Nantes</option>
+        <option value="4">Montpelier</option>
+      </select>
 
-  <div class="search-content">
-    <select (change)="getUserByCity($event.target.value)">
-      <option>Choisis une ville</option>
-      <option value="1">Paris</option>
-      <option value="2">Toulouse</option>
-      <option value="3">Nantes</option>
-      <option value="4">Montpelier</option>
-    </select>
-
-    <div *ngIf="showParis">
-      <div *ngFor="let user of usersCityParis;">
-        <p>{{ user.email }}</p>
-        <p>{{ user.nickName }}</p>
-        <p>{{ user.username }}</p>
-        <p>{{ user.city }}</p>
+      <div *ngIf="showToulouse">
+        <div *ngFor="let user of usersCityToulouse">
+          <p>{{ user.email }}</p>
+          <p>{{ user.nickName }}</p>
+          <p>{{ user.username }}</p>
+          <p>{{ user.city }}</p>
+        </div>
       </div>
-    </div>
 
-    <div *ngIf="showToulouse">
-      <div *ngFor="let user of usersCityToulouse">
-        <p>{{ user.email }}</p>
-        <p>{{ user.nickName }}</p>
-        <p>{{ user.username }}</p>
-        <p>{{ user.city }}</p>
+      <div *ngIf="showNantes">
+        <div *ngFor="let user of usersCityNantes">
+          <p>{{ user.email }}</p>
+          <p>{{ user.nickName }}</p>
+          <p>{{ user.username }}</p>
+          <p>{{ user.city }}</p>
+        </div>
       </div>
-    </div>
 
-    <div *ngIf="showNantes">
-      <div *ngFor="let user of usersCityNantes">
-        <p>{{ user.email }}</p>
-        <p>{{ user.nickName }}</p>
-        <p>{{ user.username }}</p>
-        <p>{{ user.city }}</p>
-      </div>
-    </div>
-
-    <div *ngIf="showMontpelier">
-      <div *ngFor="let user of usersCityMontpelier">
-        <p>{{ user.email }}</p>
-        <p>{{ user.nickName }}</p>
-        <p>{{ user.username }}</p>
-        <p>{{ user.city }}</p>
+      <div *ngIf="showMontpelier">
+        <div *ngFor="let user of usersCityMontpelier">
+          <p>{{ user.email }}</p>
+          <p>{{ user.nickName }}</p>
+          <p>{{ user.username }}</p>
+          <p>{{ user.city }}</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <app-nav></app-nav>
+  <div class="authentification">
+    <button routerLink="/register" class="sign-in">S'inscrire</button>
+    <button routerLink="/login" class="login">Se connecter</button>
+  </div>
 </div>
