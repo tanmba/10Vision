@@ -1,8 +1,16 @@
 <nav>
   <ul>
-    <li><a routerLink="/search">accueil</a></li>
-    <li><a routerLink="/">mes gabi</a></li>
-    <li><a routerLink="/">mon profil</a></li>
-    <li><a routerLink="/">plus</a></li>
+    <li>
+      <i (click)="homeSelected()" [ngClass]="{'homeSelect': homeActive}" class="home"><span>Accueil</span></i>
+    </li>
+    <li>
+      <i (click)="gabiSelected()" [ngClass]="{'gabiSelect': gabiActive}" class="gabi"><span>Mes gabis</span></i>
+    </li>
+    <li>
+      <i (click)="profileSelected()" [ngClass]="{'profileSelect': profileActive}" class="profile"><span>Mon profil</span></i>
+    </li>
+    <li>
+      <i (click)="plusSelected()" [ngClass]="{'plusSelect': plusActive}" class="plus"><span>Plus</span></i>
+    </li>
   </ul>
 </nav>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="24px" viewBox="0 0 37 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.545926667 0.586171429 16.4072667 0.586171429 16.4072667 7.99988571 0.545926667 7.99988571"></polygon>
+        <polygon id="path-3" points="0 0.104555556 21.3224 0.104555556 21.3224 8 0 8"></polygon>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Nav-Mes-gabi" transform="translate(-123.000000, -14.000000)">
+            <g id="Page-1" transform="translate(123.000000, 14.000000)">
+                <path d="M31,8 C31,11.3138956 28.7614973,14 26,14 C23.2385027,14 21,11.3138956 21,8 C21,4.68610445 23.2385027,2 26,2 C28.7614973,2 31,4.68610445 31,8" id="Fill-1" fill="#CC0033"></path>
+                <g id="Group-5" transform="translate(20.000000, 16.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-4"></g>
+                    <path d="M16.40806,7.77131429 L16.40806,7.99988571 L3.24552667,7.99988571 C3.24552667,5.3736 2.21646,2.98617143 0.545926667,1.22274286 C1.44012667,0.812457143 2.43292667,0.586171429 3.47899333,0.586171429 L9.28279333,0.586171429 C13.2177267,0.586171429 16.40806,3.80217143 16.40806,7.77131429" id="Fill-3" fill="#CC0033" mask="url(#mask-2)"></path>
+                </g>
+                <path d="M17,7 C17,10.8649149 14.5372974,14 11.5,14 C8.4627026,14 6,10.8649149 6,7 C6,3.13390601 8.4627026,0 11.5,0 C14.5372974,0 17,3.13390601 17,7" id="Fill-6" fill="#CC0033"></path>
+                <g id="Group-10" transform="translate(0.000000, 16.000000)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Clip-9"></g>
+                    <path d="M21.3224,8.00011111 L0,8.00011111 L0,6.16233333 C0,2.81677778 2.6851,0.104555556 5.9961,0.104555556 L15.3252,0.104555556 C18.6373,0.104555556 21.3224,2.81677778 21.3224,6.16233333 L21.3224,8.00011111 Z" id="Fill-8" fill="#CC0033" mask="url(#mask-4)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
