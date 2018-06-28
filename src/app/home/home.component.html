@@ -8,7 +8,8 @@
     <h1>Avec Gabi, trouve<br> ton coloc parfait</h1>
     <div class="buttons">
       <button class="search-gabi" routerLink="/search" >Je cherche un Gabi</button>
-      <button class="owner">Je suis propriétaire</button>
+      <button (click)="notAvailable()" class="owner">Je suis propriétaire</button>
+      <p *ngIf="availableText">Option disponible bientôt !</p>
     </div>
   </div>
 </div>

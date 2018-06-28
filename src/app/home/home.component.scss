@@ -73,6 +73,7 @@
         font-size: 18px;
         letter-spacing: 1px;
         border-radius: 30px;
+        outline: none;
       }
 
       .search-gabi {
@@ -87,6 +88,14 @@
         background: transparent;
         color: #ffffff;
         border: 2px solid #ffffff;
+      }
+
+      p {
+        position: relative;
+        top: 50px;
+        font-weight: 300;
+        font-size: 15px;
+        letter-spacing: 1.5px;
       }
     }
   }
