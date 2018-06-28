@@ -49,6 +49,5 @@ export class RegisterCityComponent implements OnInit {
         this.errorMessage = err.message;
         this.successMessage = "";
       })
-    console.log(data);
   }
 }

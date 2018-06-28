@@ -19,5 +19,6 @@ export const rootRouterConfig: Routes = [
   { path: 'user', component: UserComponent },
   { path: 'users', component: UserListComponent},
   { path: 'search', component: SearchComponent},
-  { path: 'gabis-paris', component: GabisParisComponent}
+  { path: 'gabis-paris', component: GabisParisComponent},
+  { path: 'register-city', component: RegisterCityComponent}
 ];

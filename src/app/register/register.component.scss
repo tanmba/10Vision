@@ -155,10 +155,14 @@
     }
 
     .container {
+      .form-group {
+        margin-bottom: 0;
+      }
+
       .form-control {
         width: 255.5px;
         margin: 0 auto;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         border: none;
         border-bottom: 2px solid;
         border-radius: 0;

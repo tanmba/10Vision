@@ -1,6 +1,17 @@
-<div *ngFor="let user of usersCityParis;">
-  <p>{{ user.email }}</p>
-  <p>{{ user.nickName }}</p>
-  <p>{{ user.username }}</p>
-  <p>{{ user.city }}</p>
+<div class="gabi-paris">
+  <div class="header">
+    <a routerLink="/search"><img src="../../assets/imgs/search.svg"></a>
+    <h1>Quel Gabi choisir ?</h1>
+  </div>
+
+  <div class="userlist">
+    <div class="horizontal-scroll-area">
+      <div class="user item" *ngFor="let user of usersCityParis">
+        <img src="{{ user.photoUrl }}">
+        <p>{{ user.nickName }}</p>
+      </div>
+    </div>
+  </div>
+
+  <app-nav></app-nav>
 </div>

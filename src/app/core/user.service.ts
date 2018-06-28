@@ -55,4 +55,9 @@ export class UserService {
       })
     )
   }
+
+  updateUser(user: FirebaseUserModel) {
+    console.log(user);
+    return this.collection.doc(user.uid).update(user);
+  }
 }

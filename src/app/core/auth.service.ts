@@ -12,13 +12,12 @@ import {UserService} from "../core/user.service";
 @Injectable()
 export class AuthService {
   user$: FirebaseUserModel;
-  currentUser: FirebaseUserModel;
 
   constructor(
    private afAuth: AngularFireAuth,
    private db: AngularFirestore,
    private router: Router,
-  private userService: UserService
+    private userService: UserService
 
 ){
     this.user$ = this.afAuth.authState.pipe(
@@ -95,7 +94,6 @@ export class AuthService {
   }
 
   doRegister(val) {
-
     const nickName = val.nickName;
     const city = val.city;
     const displayName = val.displayName;
@@ -112,6 +110,24 @@ export class AuthService {
   doUpdate(val) {
 
     const city = val.city;
+
+    this.user$.subscribe(user => {
+      if (user) {
+        let currentUser: FirebaseUserModel = user;
+
+        console.log(currentUser);
+
+        currentUser.city = city;
+
+        this.userService.updateUser(currentUser);
+
+        console.log('ok');
+
+      } else {
+        console.log('aucun utilisateur trouvé');
+      }
+
+    });
 
     return new Promise<any>((resolve, reject) => {
       this.userService.getCurrentUser()

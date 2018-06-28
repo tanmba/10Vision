@@ -8,7 +8,7 @@
     <h1>Où cherchez-vous<br> votre Gabi ?</h1>
     <div class="search-content">
       <select (change)="getUserByCity($event.target.value)">
-        <option>Choisis une ville</option>
+        <option>Choisissez une ville</option>
         <option value="1">Paris</option>
         <option value="2">Toulouse</option>
         <option value="3">Nantes</option>
@@ -46,6 +46,6 @@
 
   <div class="authentification">
     <button routerLink="/register" class="sign-in">S'inscrire</button>
-    <button routerLink="/login" class="login">Se connecter</button>
+    <button routerLink="/register" class="login">Se connecter</button>
   </div>
 </div>

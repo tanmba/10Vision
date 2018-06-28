@@ -11,10 +11,6 @@ import {Router} from "@angular/router";
 export class SearchComponent implements OnInit {
   users: any[];
 
-  //Paris
-  usersCityParis;
-  showParis: false;
-
   //Toulouse
   usersCityToulouse;
   showToulouse: false;
@@ -62,7 +58,7 @@ export class SearchComponent implements OnInit {
         );
       }
       this.usersCityToulouse = usersFilter();
-      this.showToulouse = !this.showMarseille
+      this.showToulouse = !this.showToulouse;
     })
   }
 
