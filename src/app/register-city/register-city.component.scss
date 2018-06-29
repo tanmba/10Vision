@@ -50,7 +50,8 @@
     position: relative;
     top: 79px;
     z-index: 1;
-    color: #ffffff;
+    background-color: #ffffff;
+    border-radius: 10px;
 
     h1 {
       font-size: 32px;
@@ -106,14 +107,24 @@
 
     .form-control {
       width: 255.5px;
-      margin: 0 auto;
-      margin-bottom: 20px;
+      margin: 30px auto;
       border: none;
       border-bottom: 2px solid;
       border-radius: 0;
       box-shadow: none;
       font-size: 16px;
       font-weight: 100;
+      background: transparent;
+    }
+
+    select {
+      background: #fff;
+      border: none;
+      height: 50px;
+      padding: 0 0 0 6px;
+      font-size: 16px;
+      font-weight: 100;
+      outline: none;
     }
 
     .btn-valid {

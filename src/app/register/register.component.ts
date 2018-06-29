@@ -68,9 +68,6 @@ export class RegisterComponent {
      this.registerForm = this.fb.group({
        email: ['', [Validators.email, Validators.required]],
        password: ['',[Validators.required]],
-       nickName: ['', [Validators.minLength(6), Validators.required]],
-       displayName: ['', [Validators.minLength(6), Validators.required]],
-       city: ['', [Validators.minLength(4), Validators.required]]
      });
    }
 
@@ -113,7 +110,8 @@ export class RegisterComponent {
      this.authService.doRegister(data)
      .then(res => {
        this.errorMessage = "";
-       this.successMessage = "Votre compte a été créé. Connectez-vous !";
+       this.successMessage = "Votre compte a été créé !";
+       this.router.navigate(['/register-city']);
      }, err => {
        console.log(err);
        this.errorMessage = err.message;
