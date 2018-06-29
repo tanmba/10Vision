@@ -39,6 +39,7 @@ export class NavComponent implements OnInit {
     this.profileActive = false;
     this.plusActive = false;
     this.homeActive = false;
+    this.router.navigate(['/my-gabis']);
   }
 
   profileSelected() {

@@ -12,6 +12,7 @@ import {GabisParisComponent} from "./gabis-paris/gabis-paris.component";
 import {GabiToulouseComponent} from "./gabi-toulouse/gabi-toulouse.component";
 import {GabiNantesComponent} from "./gabi-nantes/gabi-nantes.component";
 import {GabiMontpelierComponent} from "./gabi-montpelier/gabi-montpelier.component";
+import {MyGabisComponent} from "./my-gabis/my-gabis.component";
 
 
 export const rootRouterConfig: Routes = [
@@ -26,5 +27,6 @@ export const rootRouterConfig: Routes = [
   { path: 'gabis-toulouse', component: GabiToulouseComponent},
   { path: 'gabis-nantes', component: GabiNantesComponent},
   { path: 'gabis-montpelier', component: GabiMontpelierComponent},
-  { path: 'register-city', component: RegisterCityComponent}
+  { path: 'register-city', component: RegisterCityComponent},
+  { path: 'my-gabis', component: MyGabisComponent}
 ];
