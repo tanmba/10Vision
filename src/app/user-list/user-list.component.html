@@ -1,3 +1,15 @@
-<div *ngFor="let user of users">
-  <p>{{ user.email }}</p>
+<div class="users">
+  <div class="header">
+    <a routerLink="/search"><img src="../../assets/imgs/search.svg"></a>
+    <h1>Les gabis</h1>
+  </div>
+
+  <div class="list container">
+    <div class="row">
+      <div class="users-list col-sm-3" *ngFor="let user of users">
+        <img src="{{ user.photoUrl }}">
+        <p>{{ user.nickName }}</p>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,71 @@
+.users {
+  position: relative;
+  overflow-y: hidden;
+  height: 100vh;
+
+  .header {
+    position: relative;
+    text-align: right;
+    color: #ffffff;
+
+    a {
+      position: absolute;
+      right: 15px;
+      top: -5px;
+      z-index: 1;
+      cursor: pointer;
+
+      img {
+        width: 25px;
+      }
+    }
+
+    h1 {
+      font-family: 'Nunito', sans-serif;
+      position: relative;
+      top: 20px;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 205px;
+      position: absolute;
+      z-index: 0;
+      top: -70px;
+      left: 0;
+      background: linear-gradient(to right, rgb(229, 0, 116) 0%, #a70054 62%, #9f0737 93%, #960539 100%);
+      transform: skewY(-15deg);
+    }
+  }
+
+  .list {
+    position: relative;
+    padding: 20px 34px;
+    top: 50px;
+    width: auto;
+    overflow-x: scroll;
+
+    .row {
+      width: 500%;
+      max-width: 5000px;
+    }
+
+    .users-list {
+      width: 10%;
+      margin: 0 auto;
+      text-align: center;
+      float: left;
+
+      img {
+        width: 89px;
+        height: 89px;
+        border-radius: 100%;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

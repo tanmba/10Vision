@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {UserService} from "../core/user.service";
+import {AngularFirestore} from "angularfire2/firestore";
+import {AngularFireAuth} from "angularfire2/auth";
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-nav',
@@ -14,6 +18,9 @@ export class NavComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private userService: UserService,
+    public db: AngularFirestore,
+    public afAuth: AngularFireAuth,
   ) { }
 
   ngOnInit() {
@@ -40,6 +47,16 @@ export class NavComponent implements OnInit {
     this.homeActive = false;
     this.gabiActive = false;
     this.router.navigate(['/user']);
+
+    // var user = firebase.auth().onAuthStateChanged(function(user){
+    //   console.log(user)
+    //
+    //   if (user) {
+    //     this.router.navigate(['/user']);
+    //   } else {
+    //     this.router.navigate(['/register']);
+    //   }
+    // })
   }
 
   plusSelected() {
