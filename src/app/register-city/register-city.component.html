@@ -1,13 +1,25 @@
-<form [formGroup]="registerForm" (ngSubmit)="updateCurrentUserCity()">
-  <div class="form-group">
-    <label>Ville</label>
-    <select formControlName="city" class="form-control">
-      <option>Choisis ta ville</option>
-      <option>Paris</option>
-      <option>Toulouse</option>
-      <option>Nantes</option>
-      <option>Montpelier</option>
-    </select>
+<div class="gabi-city">
+  <div class="header">
+    <a routerLink="/"><img src="../../assets/imgs/Logo-gabi-white.svg"></a>
   </div>
-  <button type="submit" [disabled]="registerForm.invalid" class="btn btn-default">Ajouter</button>
-</form>
+
+  <div class="contain">
+    <form [formGroup]="registerForm" (ngSubmit)="updateCurrentUserCity()">
+      <div class="form-group">
+        <input placeholder="Pseudo" type="text" formControlName="nickName" class="form-control">
+      </div>
+      <div class="form-group">
+        <select formControlName="city" class="form-control">
+          <option>Choisis ta ville</option>
+          <option>Paris</option>
+          <option>Toulouse</option>
+          <option>Nantes</option>
+          <option>Montpelier</option>
+        </select>
+      </div>
+      <button type="submit" [disabled]="registerForm.invalid" class="btn btn-valid">Ajouter</button>
+      <label class="error">{{errorMessage}}</label>
+      <label class="success">{{successMessage}}</label>
+    </form>
+  </div>
+</div>

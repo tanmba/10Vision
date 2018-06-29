@@ -11,18 +11,6 @@ import {Router} from "@angular/router";
 export class SearchComponent implements OnInit {
   users: any[];
 
-  //Toulouse
-  usersCityToulouse;
-  showToulouse: false;
-
-  //Nantes
-  usersCityNantes;
-  showNantes: false;
-
-  //Montpelier
-  usersCityMontpelier;
-  showMontpelier: false;
-
   constructor(
     private userService: UserService,
     private fb: FormBuilder,
@@ -40,51 +28,12 @@ export class SearchComponent implements OnInit {
       if (data === '1') {
         this.router.navigateByUrl('/gabis-paris');
       } else if (data === '2') {
-        this.getUsersByCityToulouse()
+        this.router.navigateByUrl('/gabis-toulouse')
       } else if (data === '3') {
-        this.getUsersByCityNantes()
+        this.router.navigateByUrl('/gabis-nantes')
       } else if (data === '4') {
-        this.getUsersByCityMontpelier()
+        this.router.navigateByUrl('/gabis-montpelier')
       }
-    })
-  }
-
-  getUsersByCityToulouse() {
-    this.userService.getUsersByCity().subscribe(users => {
-      this.users = users;
-      const usersFilter = () => {
-        return users.filter((el) =>
-          el.city == 'Toulouse'
-        );
-      }
-      this.usersCityToulouse = usersFilter();
-      this.showToulouse = !this.showToulouse;
-    })
-  }
-
-  getUsersByCityNantes() {
-    this.userService.getUsersByCity().subscribe(users => {
-      this.users = users;
-      const usersFilter = () => {
-        return users.filter((el) =>
-          el.city == 'Nantes'
-        );
-      }
-      this.usersCityNantes = usersFilter();
-      this.showNantes = !this.showNantes
-    })
-  }
-
-  getUsersByCityMontpelier() {
-    this.userService.getUsersByCity().subscribe(users => {
-      this.users = users;
-      const usersFilter = () => {
-        return users.filter((el) =>
-          el.city == 'Montpelier'
-        );
-      }
-      this.usersCityMontpelier = usersFilter();
-      this.showMontpelier = !this.showMontpelier
     })
   }
 }

@@ -1,6 +1,6 @@
-.users {
+.gabi-toulouse {
   position: relative;
-  overflow-y: hidden;
+  overflow: hidden;
   height: 100vh;
 
   .header {
@@ -42,7 +42,7 @@
     }
   }
 
-  .list {
+  .userlist {
     position: relative;
     padding: 20px 34px;
     top: 50px;
@@ -54,7 +54,7 @@
       max-width: 5000px;
     }
 
-    .users-list {
+    .user {
       width: 10%;
       margin: 0 auto;
       text-align: center;

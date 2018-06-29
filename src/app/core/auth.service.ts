@@ -110,6 +110,7 @@ export class AuthService {
   doUpdate(val) {
 
     const city = val.city;
+    const nickname = val.nickName
 
     this.user$.subscribe(user => {
       if (user) {
@@ -118,6 +119,7 @@ export class AuthService {
         console.log(currentUser);
 
         currentUser.city = city;
+        currentUser.nickName = nickname
 
         this.userService.updateUser(currentUser);
 
@@ -172,8 +174,8 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName || 'Utilisateur',
       photoUrl: user.photoUrl || `https://api.adorable.io/avatars/285/${user.uid}`,
-      nickName: nickName || 'Anonyme',
-      city: city || 'Pas de ville',
+      nickName: user.nickName || 'Anonyme',
+      city: user.city || 'Pas de ville',
     };
 
     return userRef.set(data, { merge: true });

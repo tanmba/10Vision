@@ -14,7 +14,6 @@ export class RegisterCityComponent implements OnInit {
   registerForm: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
-  currentUser: FirebaseUserModel;
   users: any;
 
   constructor(
@@ -26,28 +25,28 @@ export class RegisterCityComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   createForm() {
     this.registerForm = this.fb.group({
+      nickName: ['', [Validators.minLength(4), Validators.required]],
       city: ['', [Validators.minLength(4), Validators.required]]
     });
   }
 
   updateCurrentUserCity(){
-
     const data = this.registerForm.value;
     console.log(data);
 
     this.authService.doUpdate(data)
       .then(res => {
         this.errorMessage = "";
-        this.successMessage = "Your account has been created";
+        this.successMessage = "Votre vitte a été ajoutée, connectez-vous !";
       }, err => {
         console.log(err);
         this.errorMessage = err.message;
         this.successMessage = "";
       })
+    this.router.navigateByUrl('/user');
   }
 }

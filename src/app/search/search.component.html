@@ -14,33 +14,6 @@
         <option value="3">Nantes</option>
         <option value="4">Montpelier</option>
       </select>
-
-      <div *ngIf="showToulouse">
-        <div *ngFor="let user of usersCityToulouse">
-          <p>{{ user.email }}</p>
-          <p>{{ user.nickName }}</p>
-          <p>{{ user.username }}</p>
-          <p>{{ user.city }}</p>
-        </div>
-      </div>
-
-      <div *ngIf="showNantes">
-        <div *ngFor="let user of usersCityNantes">
-          <p>{{ user.email }}</p>
-          <p>{{ user.nickName }}</p>
-          <p>{{ user.username }}</p>
-          <p>{{ user.city }}</p>
-        </div>
-      </div>
-
-      <div *ngIf="showMontpelier">
-        <div *ngFor="let user of usersCityMontpelier">
-          <p>{{ user.email }}</p>
-          <p>{{ user.nickName }}</p>
-          <p>{{ user.username }}</p>
-          <p>{{ user.city }}</p>
-        </div>
-      </div>
     </div>
   </div>
 

@@ -1,0 +1,135 @@
+.gabi-city {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 34px;
+  height: 100vh;
+  background-image: url("../../assets/imgs/Gabi-mobile-bcg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 10% 0;
+  z-index: 1;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.6;
+  }
+
+  .header {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+
+    a {
+      cursor: pointer;
+    }
+
+    img {
+      width: 55px;
+    }
+
+    p {
+      margin: 10px auto;
+      font-weight: 300;
+      font-size: 15px;
+      letter-spacing: 1.5px;
+    }
+  }
+
+  .contain {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 79px;
+    z-index: 1;
+    color: #ffffff;
+
+    h1 {
+      font-size: 32px;
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+      font-weight: bold;
+      margin: 0 auto;
+      line-height: 1.2;
+      letter-spacing: 1.1px;
+    }
+
+    .buttons {
+      text-align: center;
+      position: relative;
+      top: 26px;
+
+      button {
+        font-family: 'Nunito', sans-serif;
+        width: 244px;
+        height: 44px;
+        font-size: 18px;
+        letter-spacing: 1px;
+        border-radius: 30px;
+        outline: none;
+      }
+
+      .search-gabi {
+        background: #ffffff;
+        color: #331832;
+        border: none;
+      }
+
+      .owner {
+        position: relative;
+        top: 20px;
+        background: transparent;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+      }
+
+      p {
+        position: relative;
+        top: 50px;
+        font-weight: 300;
+        font-size: 15px;
+        letter-spacing: 1.5px;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 0;
+    }
+
+    .form-control {
+      width: 255.5px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      border: none;
+      border-bottom: 2px solid;
+      border-radius: 0;
+      box-shadow: none;
+      font-size: 16px;
+      font-weight: 100;
+    }
+
+    .btn-valid {
+      display: block;
+      width: 255.5px;
+      height: 44px;
+      margin: 0 auto;
+      border: none;
+      border-radius: 50px;
+      background: #331832;
+      color: #ffffff;
+      opacity: 1;
+      font-size: 18px;
+      font-family: 'Nunito', sans-serif;
+      letter-spacing: 0.9px;
+      margin-bottom: 30px;
+    }
+  }
+}

@@ -27,6 +27,9 @@ import { SearchPipe } from './pipes/search.pipe';
 import { FormsModule }   from '@angular/forms';
 import { RegisterCityComponent } from './register-city/register-city.component';
 import { GabisParisComponent } from './gabis-paris/gabis-paris.component';
+import { GabiToulouseComponent } from './gabi-toulouse/gabi-toulouse.component';
+import { GabiNantesComponent } from './gabi-nantes/gabi-nantes.component';
+import { GabiMontpelierComponent } from './gabi-montpelier/gabi-montpelier.component';
 
 
 @NgModule({
@@ -42,6 +45,9 @@ import { GabisParisComponent } from './gabis-paris/gabis-paris.component';
     SearchPipe,
     RegisterCityComponent,
     GabisParisComponent,
+    GabiToulouseComponent,
+    GabiNantesComponent,
+    GabiMontpelierComponent,
   ],
   imports: [
     MnFullpageModule.forRoot(),

@@ -1,0 +1,15 @@
+<div class="gabi-toulouse">
+  <div class="header">
+    <a routerLink="/search"><img src="../../assets/imgs/search.svg"></a>
+    <h1>Quel Gabi choisir ?</h1>
+  </div>
+
+  <div class="userlist container">
+    <div class="row">
+      <div class="user item col-sm-3" *ngFor="let user of usersCityToulouse">
+        <img src="{{ user.photoUrl }}">
+        <p>{{ user.nickName }}</p>
+      </div>
+    </div>
+  </div>
+</div>
