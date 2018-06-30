@@ -140,6 +140,18 @@ export class AuthService {
     })
   }
 
+  ifLogged() {
+    this.user$.subscribe(user => {
+      if (user) {
+        let userLog: FirebaseUserModel = user;
+        console.log(userLog);
+        this.router.navigate(['/user']);
+      } else {
+        this.router.navigate(['/register']);;
+      }
+    });
+  }
+
   async doSignUp(value) {
     return await this.afAuth.auth.createUserWithEmailAndPassword(value.email, value.password).then(
       (data) => {

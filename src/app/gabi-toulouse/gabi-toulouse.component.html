@@ -7,8 +7,10 @@
   <div class="userlist container">
     <div class="row">
       <div class="user item col-sm-3" *ngFor="let user of usersCityToulouse">
-        <img src="{{ user.photoUrl }}">
-        <p>{{ user.nickName }}</p>
+        <div [routerLink]="['/user', user.uid]">
+          <img src="{{ user.photoUrl }}">
+          <p>{{ user.nickName }}</p>
+        </div>
       </div>
     </div>
   </div>

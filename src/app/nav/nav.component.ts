@@ -4,6 +4,7 @@ import {UserService} from "../core/user.service";
 import {AngularFirestore} from "angularfire2/firestore";
 import {AngularFireAuth} from "angularfire2/auth";
 import * as firebase from 'firebase/app';
+import {AuthService} from "../core/auth.service";
 
 @Component({
   selector: 'app-nav',
@@ -15,10 +16,11 @@ export class NavComponent implements OnInit {
   gabiActive = false;
   profileActive = false;
   plusActive = false;
+  modal =false;
 
   constructor(
     private router: Router,
-    private userService: UserService,
+    private authService: AuthService,
     public db: AngularFirestore,
     public afAuth: AngularFireAuth,
   ) { }
@@ -47,17 +49,7 @@ export class NavComponent implements OnInit {
     this.plusActive = false;
     this.homeActive = false;
     this.gabiActive = false;
-    this.router.navigate(['/user']);
-
-    // var user = firebase.auth().onAuthStateChanged(function(user){
-    //   console.log(user)
-    //
-    //   if (user) {
-    //     this.router.navigate(['/user']);
-    //   } else {
-    //     this.router.navigate(['/register']);
-    //   }
-    // })
+    this.authService.ifLogged();
   }
 
   plusSelected() {
@@ -65,5 +57,10 @@ export class NavComponent implements OnInit {
     this.homeActive = false;
     this.gabiActive = false;
     this.profileActive = false;
+    this.modal = !this.modal;
+  }
+
+  logout(){
+    this.authService.doLogout();
   }
 }

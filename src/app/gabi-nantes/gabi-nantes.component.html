@@ -7,10 +7,10 @@
   <div class="userlist container">
     <div class="row">
       <div class="user item col-sm-3" *ngFor="let user of usersCityNantes">
-        <a href="mailto:{{user.email}}" target="_blank">
+        <div [routerLink]="['/user', user.uid]">
           <img src="{{ user.photoUrl }}">
           <p>{{ user.nickName }}</p>
-        </a>
+        </div>
       </div>
     </div>
   </div>

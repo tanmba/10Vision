@@ -44,6 +44,22 @@ export class UserService {
     )
   }
 
+  getUser(uid): Observable<FirebaseUserModel> {
+
+    const userId = uid;
+
+    return this.collection
+      .doc<FirebaseUserModel>(`/${userId}`)
+      .snapshotChanges()
+      .pipe(
+        map(a => {
+          const item = a.payload.data() as T;
+          // item.uid = a.payload.id;
+          return item;
+        })
+      );
+  }
+
   getUsersByCity(): Observable<FirebaseUserModel> {
     return this.collection.snapshotChanges().pipe(
       map(actions => {

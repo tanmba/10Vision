@@ -1,0 +1,15 @@
+<div class="user-details">
+  <a class="left-arrow-link" (click)="locationBack()"><img class="left-arrow" src="../../assets/imgs/left-arrow-white.svg"></a>
+  <div class="header">
+    <div class="header-text">
+      <p class="username">{{ user?.nickName }}</p>
+      <img src="{{ user?.photoUrl }}">
+      <p class="usercity">Cherche Gabi à {{ user?.city }}</p>
+    </div>
+  </div>
+
+  <div class="contain">
+    <a class="bio">Lire la bio</a>
+    <a class="add"><img src="../../assets/imgs/nav-icons/add-user-button.svg"></a>
+  </div>
+</div>

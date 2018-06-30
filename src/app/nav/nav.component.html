@@ -13,4 +13,31 @@
       <i (click)="plusSelected()" [ngClass]="{'plusSelect': plusActive}" class="plus"><span>Plus</span></i>
     </li>
   </ul>
+
+  <div *ngIf="modal" class="modal-plus">
+    <div class="contain">
+      <div class="notifications">
+        <img src="">
+        <p>Notifications & Push</p>
+      </div>
+      <div class="params">
+        <img src="">
+        <p>Paramètres</p>
+      </div>
+      <div class="confidential">
+        <img src="">
+        <p>Confidentialité</p>
+      </div>
+      <div class="help">
+        <img src="">
+        <p>Aide</p>
+      </div>
+      <div class="logout">
+        <a (click)="logout()">
+          <img src="">
+          <p>Se déconnecter</p>
+        </a>
+      </div>
+    </div>
+  </div>
 </nav>
