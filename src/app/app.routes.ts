@@ -14,6 +14,7 @@ import {GabiNantesComponent} from "./gabi-nantes/gabi-nantes.component";
 import {GabiMontpelierComponent} from "./gabi-montpelier/gabi-montpelier.component";
 import {MyGabisComponent} from "./my-gabis/my-gabis.component";
 import {UserDetailsComponent} from "./user-details/user-details.component";
+import {EditprofileComponent} from "./editprofile/editprofile.component";
 
 
 export const rootRouterConfig: Routes = [
@@ -30,5 +31,6 @@ export const rootRouterConfig: Routes = [
   { path: 'gabis-montpelier', component: GabiMontpelierComponent},
   { path: 'register-city', component: RegisterCityComponent},
   { path: 'my-gabis', component: MyGabisComponent},
-  { path: 'user/:id', component: UserDetailsComponent}
+  { path: 'user/:id', component: UserDetailsComponent},
+  { path: 'update-user', component: EditprofileComponent},
 ];

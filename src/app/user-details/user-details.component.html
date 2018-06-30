@@ -10,6 +10,11 @@
 
   <div class="contain">
     <a class="bio">Lire la bio</a>
-    <a class="add"><img src="../../assets/imgs/nav-icons/add-user-button.svg"></a>
+    <a (click)="addGabi()" class="add"><img src="../../assets/imgs/nav-icons/add-user-button.svg"></a>
+
+    <div class="useremail" *ngIf="showEmail">
+      <p>Cliquez sur le lien pour envoyer un mail à ce Gabi :</p>
+      <a href="mailto:{{ user?.email }}">{{ user?.email }}</a>
+    </div>
   </div>
 </div>

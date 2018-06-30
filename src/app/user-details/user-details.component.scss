@@ -112,5 +112,20 @@
         width: 33px;
       }
     }
+
+    .useremail {
+      margin-top: 70px;
+      font-size: 18px;
+      letter-spacing: 1px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #331832;
+
+      a {
+        text-decoration: underline;
+      }
+    }
   }
 }

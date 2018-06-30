@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../core/user.service';
 import { AuthService } from '../core/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FirebaseUserModel } from '../core/user.model';
@@ -18,7 +18,8 @@ export class UserComponent implements OnInit{
   constructor(
     public authService: AuthService,
     private location : Location,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router,
   ) {
 
   }
@@ -41,5 +42,9 @@ export class UserComponent implements OnInit{
 
   logout(){
     this.authService.doLogout();
+  }
+
+  updateUserDetails() {
+    this.router.navigate(['/update-user'])
   }
 }

@@ -33,6 +33,7 @@ export class NavComponent implements OnInit {
     this.gabiActive = false;
     this.profileActive = false;
     this.plusActive = false;
+    this.modal = false;
     this.router.navigate(['/users']);
   }
 
@@ -41,6 +42,7 @@ export class NavComponent implements OnInit {
     this.profileActive = false;
     this.plusActive = false;
     this.homeActive = false;
+    this.modal = false;
     this.router.navigate(['/my-gabis']);
   }
 
@@ -49,6 +51,7 @@ export class NavComponent implements OnInit {
     this.plusActive = false;
     this.homeActive = false;
     this.gabiActive = false;
+    this.modal = false;
     this.authService.ifLogged();
   }
 

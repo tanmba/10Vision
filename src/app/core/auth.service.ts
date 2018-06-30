@@ -140,6 +140,40 @@ export class AuthService {
     })
   }
 
+  doUpdateProfile(val) {
+    const city = val.city;
+    const nickname = val.nickName;
+    const email = val.email;
+
+    this.user$.subscribe(user => {
+      if (user) {
+        let currentUser: FirebaseUserModel = user;
+
+        console.log(currentUser);
+
+        currentUser.city = city;
+        currentUser.nickName = nickname;
+        currentUser.email = email;
+
+        this.userService.updateUser(currentUser);
+
+        console.log('ok');
+
+      } else {
+        console.log('aucun utilisateur trouvé');
+      }
+
+    });
+
+    return new Promise<any>((resolve, reject) => {
+      this.userService.getCurrentUser()
+        .then(data => {
+          this.updateUserData(data, city, nickname, email);
+          resolve(data);
+        }, err => reject(err))
+    })
+  }
+
   ifLogged() {
     this.user$.subscribe(user => {
       if (user) {
@@ -147,8 +181,15 @@ export class AuthService {
         console.log(userLog);
         this.router.navigate(['/user']);
       } else {
-        this.router.navigate(['/register']);;
+        this.router.navigate(['/register']);
       }
+    });
+  }
+
+  ifLoggedAdd() {
+    this.user$.subscribe(user => {
+      let user = user;
+      console.log(user);
     });
   }
 

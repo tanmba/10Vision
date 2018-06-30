@@ -32,6 +32,7 @@ import { GabiNantesComponent } from './gabi-nantes/gabi-nantes.component';
 import { GabiMontpelierComponent } from './gabi-montpelier/gabi-montpelier.component';
 import { MyGabisComponent } from './my-gabis/my-gabis.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     GabiMontpelierComponent,
     MyGabisComponent,
     UserDetailsComponent,
+    EditprofileComponent,
   ],
   imports: [
     MnFullpageModule.forRoot(),

@@ -3,6 +3,20 @@
   overflow: hidden;
   height: 100vh;
 
+  .edit {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    width: 33px;
+    height: 33px;
+    right: 10px;
+    top: 10px;
+
+    img {
+      width: 25px;
+    }
+  }
+
   .header {
     position: relative;
     text-align: right;
