@@ -3,6 +3,10 @@
   overflow: hidden;
   height: 100vh;
 
+  .desktop {
+    display: none;
+  }
+
   .header {
     position: relative;
     text-align: right;
