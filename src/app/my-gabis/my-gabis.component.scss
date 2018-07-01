@@ -56,4 +56,46 @@
       letter-spacing: 1.5px;
     }
   }
+
+  .contact, .footer {
+    display: none;
+  }
+}
+
+//Desktop
+@media (min-width: 481px) {
+  .my-gabis {
+    padding-top: 90px;
+
+    .header {
+      width: 91.2%;
+      top: -20px;
+
+      &:before {
+        display: none;
+      }
+
+      &:after {
+        content: "";
+        display : inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height : 0;
+        width : 0;
+        border-top: 145px solid #e50074;
+        border-right: 91vw solid transparent;
+      }
+
+      h1 {
+        z-index: 1;
+        text-align: left;
+        margin-left: 20px;
+      }
+
+      a {
+        display: none;
+      }
+    }
+  }
 }

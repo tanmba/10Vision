@@ -12,9 +12,9 @@
 
     <!--Register-->
     <div *ngIf="showRegister" class="register-links">
-      <button type="button" class="btn btn-facebook btn-block" (click)="tryFacebookLogin()"><img src="../../assets/imgs/facebook-logo.png">S'inscrire avec Facebook</button>
-      <button type="button" class="btn btn-google btn-block" (click)="tryGoogleLogin()"><img src="../../assets/imgs/google-plus.svg">S'inscrire avec Google</button>
-      <button type="button" class="btn btn-email btn-block" (click)="loadRegisterComponent()">Inscription avec email</button>
+      <button type="button" class="btn btn-facebook btn-block" (click)="tryFacebookLogin()"><img src="../../assets/imgs/facebook-logo.png"><span>S'inscrire avec Facebook</span></button>
+      <button type="button" class="btn btn-google btn-block" (click)="tryGoogleLogin()"><img src="../../assets/imgs/google-plus.svg"><span>S'inscrire avec Google</span></button>
+      <button type="button" class="btn btn-email btn-block" (click)="loadRegisterComponent()"><span>Inscription avec email</span></button>
     </div>
 
     <div *ngIf="loadRegister" class="container">
@@ -36,9 +36,9 @@
 
     <!--Login-->
     <div *ngIf="showLogin" class="register-links">
-      <button type="button" class="btn btn-facebook btn-block" (click)="tryFacebookLogin()"><img src="../../assets/imgs/facebook-logo.png">Se connecter avec Facebook</button>
-      <button type="button" class="btn btn-google btn-block" (click)="tryGoogleLogin()"><img src="../../assets/imgs/google-plus.svg">Se connecter avec Google</button>
-      <button type="button" class="btn btn-email btn-block" (click)="loadLoginComponent()">Connexion avec email</button>
+      <button type="button" class="btn btn-facebook btn-block" (click)="tryFacebookLogin()"><img src="../../assets/imgs/facebook-logo.png"><span>Se connecter avec Facebook</span></button>
+      <button type="button" class="btn btn-google btn-block" (click)="tryGoogleLogin()"><img src="../../assets/imgs/google-plus.svg"><span>Se connecter avec Google</span></button>
+      <button type="button" class="btn btn-email btn-block" (click)="loadLoginComponent()"><span>Connexion avec email</span></button>
     </div>
 
     <div *ngIf="loadLogin" class="container">

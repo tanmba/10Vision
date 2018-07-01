@@ -1,15 +1,19 @@
 <div class="user-infos">
   <a (click)="updateUserDetails()" class="edit"><img src="../../assets/imgs/nav-icons/edit.svg"></a>
   <div class="header">
-    <h1>Mon profil</h1>
+    <h1 class="mobile">Mon profil</h1>
   </div>
 
   <div class="container">
+    <div class="desktop edit-user">
+      <h1 class="desktop">{{ currentUser?.nickName }}</h1>
+      <a (click)="updateUserDetails()"><img src="../../assets/imgs/nav-icons/edit.svg"></a>
+    </div>
     <div class="row">
       <div class="col-md-4 col-md-offset-4">
         <div class="top-infos">
           <img src="{{ currentUser?.photoUrl }}">
-          <p>{{ currentUser?.nickName }}</p>
+          <p class="mobile">{{ currentUser?.nickName }}</p>
         </div>
         <div class="other-infos">
           <p>Adresse email : <span>{{ currentUser?.email }}</span></p>
@@ -17,5 +21,24 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="contact">
+    <div class="contact-links">
+      <a>L'équipe</a>
+      <a>Presse</a>
+      <a href="mailto:contact@gabi.com">contact@gabi.com</a>
+    </div>
+
+    <div class="socials">
+      <a href="https://www.facebook.com/GabiColoc/" target="_blank"><img src="../../assets/imgs/nav-icons/facebook-letter-logo.svg"></a>
+      <a href="https://www.instagram.com/GABI_fr_/"><img src="../../assets/imgs/nav-icons/twitter-logo-silhouette.svg"></a>
+      <a href="https://twitter.com/gabi_fr_"><img src="../../assets/imgs/nav-icons/instagram-logo.svg"></a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a routerLink="/">Plan du site</a>
+    <a routerLink="/mentions-legales">Mentions légales</a>
   </div>
 </div>

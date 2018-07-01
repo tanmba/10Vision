@@ -67,7 +67,22 @@
       display: flex;
       flex-direction: column;
       height: auto;
-      margin-top: 20px;
+      position: relative;
+      width: 90%;
+      margin: 20px auto;
+
+      &:after {
+        content: "";
+        display: block;
+        height: 0;
+        width: 0;
+        border-bottom: 10px solid #331832;
+        border-left: 10px solid transparent;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        transform: rotate(45deg);
+      }
 
       select {
         background: #fff;
@@ -78,6 +93,8 @@
         font-size: 16px;
         font-family: 'Nunito', sans-serif;
         outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
       }
     }
   }
@@ -122,44 +139,72 @@
       display: flex;
       width: 100%;
       position: fixed;
-      top: 20px;
-      left: 20px;
+      top: 30px;
+      left: 26px;
 
       p {
         display: flex;
         align-items: center;
-        font-size: 18px;
-        margin-left: 20px;
+        font-size: 10px;
+        margin-left: 17px;
+        margin-top: 22px;
         text-align: left;
       }
 
       img {
-        width: 68px;
+        width: 50px;
       }
     }
 
     .contain {
       width: 100%;
-      top: 0;
+      top: -12px;
 
       h1 {
         width: 100%;
+        font-size: 32px;
       }
 
       .search-content {
+        position: relative;
+        top: 46px;
+        width: 65%;
+        margin: 0 auto;
+
+        &:after {
+          content: "";
+          display: block;
+          height: 0;
+          width: 0;
+          border-bottom: 10px solid #331832;
+          border-left: 10px solid transparent;
+          position: absolute;
+          top: 15px;
+          right: 20px;
+          transform: rotate(45deg);
+        }
+
         select {
-          width: 90%;
+          position: relative;
+          width: 100%;
           margin: 0 auto;
+          -webkit-appearance: none;
+          -moz-appearance: none;
         }
       }
     }
 
     .authentification {
       left: unset;
-      right: 30px;
-      width: 29%;
-      height: 60px;
-      top: 30px;
+      right: 85px;
+      width: 19.5%;
+      height: 40px;
+      top: 50px;
+
+      button {
+        font-size: 13px;
+        height: 40px;
+      }
 
       .sign-in {
         border-radius: 10px 0 0 10px;

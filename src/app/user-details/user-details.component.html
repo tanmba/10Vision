@@ -9,6 +9,16 @@
   </div>
 
   <div class="contain">
+    <div class="contain-text">
+      <p class="username">{{ user?.nickName }}</p>
+      <div class="sides">
+        <img class="user-img" src="{{ user?.photoUrl }}">
+        <div class="side-user-infos">
+          <p class="usercity">Cherche Gabi à {{ user?.city }}</p>
+          <a class="user-add" (click)="addGabi()">Ajouter à mes Gabi</a>
+        </div>
+      </div>
+    </div>
     <a class="bio">Lire la bio</a>
     <a (click)="addGabi()" class="add"><img src="../../assets/imgs/nav-icons/add-user-button.svg"></a>
 
@@ -16,5 +26,24 @@
       <p>Cliquez sur le lien pour envoyer un mail à ce Gabi :</p>
       <a href="mailto:{{ user?.email }}">{{ user?.email }}</a>
     </div>
+  </div>
+
+  <div class="contact">
+    <div class="contact-links">
+      <a>L'équipe</a>
+      <a>Presse</a>
+      <a href="mailto:contact@gabi.com">contact@gabi.com</a>
+    </div>
+
+    <div class="socials">
+      <a href="https://www.facebook.com/GabiColoc/" target="_blank"><img src="../../assets/imgs/nav-icons/facebook-letter-logo.svg"></a>
+      <a href="https://www.instagram.com/GABI_fr_/"><img src="../../assets/imgs/nav-icons/twitter-logo-silhouette.svg"></a>
+      <a href="https://twitter.com/gabi_fr_"><img src="../../assets/imgs/nav-icons/instagram-logo.svg"></a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a routerLink="/">Plan du site</a>
+    <a routerLink="/mentions-legales">Mentions légales</a>
   </div>
 </div>

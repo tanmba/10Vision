@@ -24,10 +24,12 @@ export class NavComponent implements OnInit {
   profileActiveDesktop = false;
   plusActiveDesktop = false;
   modal =false;
+  showSearch = false;
 
   constructor(
     private router: Router,
     private authService: AuthService,
+    private userService: UserService,
     public db: AngularFirestore,
     public afAuth: AngularFireAuth,
   ) { }
@@ -72,5 +74,30 @@ export class NavComponent implements OnInit {
 
   logout(){
     this.authService.doLogout();
+  }
+
+  showSearchBar() {
+    this.showSearch = !this.showSearch;
+  }
+
+  closeSearchBar() {
+    this.showSearch = false;
+  }
+
+  getUserByCity(data) {
+    console.log(data);
+    this.userService.getUsersByCity().subscribe(users => {
+      this.users = users;
+
+      if (data === '1') {
+        this.router.navigateByUrl('/gabis-paris');
+      } else if (data === '2') {
+        this.router.navigateByUrl('/gabis-toulouse')
+      } else if (data === '3') {
+        this.router.navigateByUrl('/gabis-nantes')
+      } else if (data === '4') {
+        this.router.navigateByUrl('/gabis-montpelier')
+      }
+    })
   }
 }

@@ -61,6 +61,43 @@
     </ul>
   </div>
   <div class="right-nav">
-    <a routerLink="/search"><img class="search-bar" src="../../assets/imgs/nav-icons/magnifying-glass-pink.svg"></a>
+    <a (click)="showSearchBar()" class="search-bar"><i></i></a>
+    <div *ngIf="showSearch" class="search-content">
+      <select (change)="getUserByCity($event.target.value)">
+        <option>Choisissez une ville</option>
+        <option value="1">Paris</option>
+        <option value="2">Toulouse</option>
+        <option value="3">Nantes</option>
+        <option value="4">Montpelier</option>
+      </select>
+      <a (click)="closeSearchBar()" class="close-search-bar"><i></i></a>
+    </div>
+  </div>
+
+  <div *ngIf="modal" class="modal-plus">
+    <div class="contain">
+      <div class="notifications">
+        <img src="../../assets/imgs/nav-icons/Notification%20&%20Push.svg">
+        <p>Notifications & Push</p>
+      </div>
+      <div class="params">
+        <img src="../../assets/imgs/nav-icons/parametre.svg">
+        <p>Paramètres</p>
+      </div>
+      <div class="confidential">
+        <img src="../../assets/imgs/nav-icons/confidentialite.svg">
+        <p>Confidentialité</p>
+      </div>
+      <div class="help">
+        <img src="../../assets/imgs/nav-icons/Aide.svg">
+        <p>Aide</p>
+      </div>
+      <div class="logout">
+        <a (click)="logout()">
+          <img src=" ../../assets/imgs/nav-icons/se%20deconnecter.svg">
+          <p>Se déconnecter</p>
+        </a>
+      </div>
+    </div>
   </div>
 </nav>
