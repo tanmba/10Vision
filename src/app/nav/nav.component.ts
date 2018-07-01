@@ -18,6 +18,13 @@ export class NavComponent implements OnInit {
   plusActive = false;
   modal =false;
 
+  //Desktop
+  homeActiveDesktop = false;
+  gabiActiveDesktop = false;
+  profileActiveDesktop = false;
+  plusActiveDesktop = false;
+  modal =false;
+
   constructor(
     private router: Router,
     private authService: AuthService,

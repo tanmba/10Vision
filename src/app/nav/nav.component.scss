@@ -1,4 +1,4 @@
-nav {
+.mobile {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -74,6 +74,12 @@ nav {
         }
       }
 
+      .homeSelectDesktop {
+        span {
+          color: #cc0033;
+        }
+      }
+
       .gabi {
         &:before {
           width: 35px;
@@ -86,6 +92,12 @@ nav {
           background-image: url("../../assets/imgs/nav-icons/Gabi-Selec.svg");
         }
 
+        span {
+          color: #cc0033;
+        }
+      }
+
+      .gabiSelectDesktop {
         span {
           color: #cc0033;
         }
@@ -107,6 +119,12 @@ nav {
         }
       }
 
+      .profileSelectDesktop {
+        span {
+          color: #cc0033;
+        }
+      }
+
       .plus {
         &:before {
           width: 35px;
@@ -120,6 +138,12 @@ nav {
           background-image: url("../../assets/imgs/nav-icons/Plus-Selec.svg");
         }
 
+        span {
+          color: #cc0033;
+        }
+      }
+
+      .plusSelectDesktop {
         span {
           color: #cc0033;
         }
@@ -176,6 +200,131 @@ nav {
         p {
           border-bottom: none;
         }
+      }
+    }
+  }
+}
+
+.desktop {
+  display: none;
+}
+
+@media (min-width: 481px) {
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 1184px;
+    height: 90px;
+    background: #ffffff;
+    box-shadow: -7px -7px 17px 0 #656565;
+
+    .left-nav {
+      display: flex;
+      align-items: center;
+
+      a {
+        display: block;
+        cursor: pointer;
+      }
+
+      img {
+        width: 50px;
+        position: relative;
+        left: 20px;
+      }
+
+      ul {
+        position: fixed;
+        right: 8%;
+        top: 0;
+        z-index: 1;
+        display: flex;
+        padding: 0;
+        height: 90px;
+        justify-content: center;
+
+        li {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          list-style-type: none;
+          width: 110px;
+          text-align: center;
+
+          i {
+            cursor: pointer;
+            position: relative;
+            height: 60px;
+            width: auto;
+            font-family: 'Nunito', sans-serif;
+            font-style: normal;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #999999;
+
+            span {
+              display: block;
+              letter-spacing: 1.2px;
+              font-weight: 100;
+              font-size: 11px;
+              margin-top: 5px;
+            }
+          }
+
+          .homeSelect {
+            span {
+              color: #cc0033;
+            }
+          }
+
+          .gabiSelect {
+            span {
+              color: #cc0033;
+            }
+          }
+
+          .profileSelect {
+            span {
+              color: #cc0033;
+            }
+          }
+
+          .plusSelect {
+            span {
+              color: #cc0033;
+            }
+          }
+        }
+      }
+    }
+
+    .right-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 90px;
+      height: 90px;
+      background: #ffffff;
+      box-shadow: 0 0 17px -7px #656565;
+
+      a {
+        display: block;
+        cursor: pointer;
+      }
+
+      img {
+        width: 20px;
       }
     }
   }

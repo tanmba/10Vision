@@ -5,11 +5,16 @@
   </div>
 
   <div class="contain">
-    <h1>Avec Gabi, trouve<br> ton coloc parfait</h1>
+    <h1>Avec Gabi, trouve ton coloc parfait</h1>
     <div class="buttons">
       <button class="search-gabi" routerLink="/search" >Je cherche un Gabi</button>
       <button (click)="notAvailable()" class="owner">Je suis propriétaire</button>
       <p *ngIf="availableText">Option disponible bientôt !</p>
     </div>
+  </div>
+
+  <div class="footer">
+    <a routerLink="/">Plan du site</a>
+    <a routerLink="/mentions-legales">Mentions légales</a>
   </div>
 </div>

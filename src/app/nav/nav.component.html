@@ -1,4 +1,4 @@
-<nav>
+<nav class="mobile">
   <ul>
     <li>
       <i (click)="homeSelected()" [ngClass]="{'homeSelect': homeActive}" class="home"><span>Accueil</span></i>
@@ -39,5 +39,28 @@
         </a>
       </div>
     </div>
+  </div>
+</nav>
+
+<nav class="desktop">
+  <div class="left-nav">
+    <a routerLink="/"><img class="logo" src="../../assets/imgs/Logo.svg"></a>
+    <ul>
+      <li>
+        <i (click)="homeSelected()" [ngClass]="{'homeSelect': homeActive}"><span>Accueil</span></i>
+      </li>
+      <li>
+        <i (click)="gabiSelected()" [ngClass]="{'gabiSelect': gabiActive}"><span>Mes gabis</span></i>
+      </li>
+      <li>
+        <i (click)="profileSelected()" [ngClass]="{'profileSelect': profileActive}"><span>Mon profil</span></i>
+      </li>
+      <li>
+        <i (click)="plusSelected()" [ngClass]="{'plusSelect': plusActive}"><span>Plus</span></i>
+      </li>
+    </ul>
+  </div>
+  <div class="right-nav">
+    <a routerLink="/search"><img class="search-bar" src="../../assets/imgs/nav-icons/magnifying-glass-pink.svg"></a>
   </div>
 </nav>
