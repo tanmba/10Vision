@@ -119,13 +119,38 @@
       }
     }
 
+    #scroll > .box {
+      width:50vw;
+      height:100vh;
+      display:inline-block;
+      position:relative;
+    }
+
+    #scroll {
+      overflow-y:scroll;
+      overflow-x:hidden;
+      transform: rotate(270deg) translateX(-100%);
+      transform-origin: top left;
+      position:absolute;
+      width:100vh;
+      height: 70vw;
+      left: 140px;
+    }
+    #scroll2 {
+      transform: rotate(90deg) translateY(-70vh);
+      transform-origin: top left;
+      white-space:nowrap;
+      font-size:0;
+    }
+
     .list {
       top: 0;
       width: 760px;
       height: 450px;
 
       .users-list {
-        width: 5%;
+        width: 10%;
+        margin: 10px auto;
       }
     }
 

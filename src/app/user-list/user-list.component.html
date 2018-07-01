@@ -4,9 +4,9 @@
     <h1>Les gabis</h1>
   </div>
 
-  <div class="list container">
-    <div class="row">
-      <div class="users-list col-sm-3" *ngFor="let user of users">
+  <div id="scroll" class="list container">
+    <div id="scroll2" class="row">
+      <div class="users-list box col-sm-3" *ngFor="let user of users">
         <div [routerLink]="['/user', user.uid]">
           <img src="{{ user.photoUrl }}">
           <p>{{ user.nickName }}</p>
