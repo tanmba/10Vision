@@ -4,9 +4,9 @@
     <h1>Quel Gabi choisir ?</h1>
   </div>
 
-  <div class="userlist container">
-    <div class="row">
-      <div class="user item col-sm-3" *ngFor="let user of usersCityParis">
+  <div id="scroll" class="userlist container">
+    <div id="scroll2" class="row">
+      <div class="user item box col-sm-3" *ngFor="let user of usersCityParis">
         <div [routerLink]="['/user', user.uid]">
           <img src="{{ user.photoUrl }}">
           <p>{{ user.nickName }}</p>
@@ -16,6 +16,12 @@
   </div>
 
   <app-nav></app-nav>
+
+  <div class="scroll-down desktop">
+    <samp class="left">faire</samp>
+    <samp class="mouse"></samp>
+    <samp class="right">défiler</samp>
+  </div>
 
   <div class="contact">
     <div class="contact-links">

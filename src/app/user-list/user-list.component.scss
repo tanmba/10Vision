@@ -3,6 +3,10 @@
   overflow-y: hidden;
   height: 100vh;
 
+  .desktop {
+    display: none;
+  }
+
   .header {
     position: relative;
     text-align: right;
@@ -55,7 +59,7 @@
     }
 
     .users-list {
-      width: 10%;
+      width: 9%;
       margin: 0 auto;
       text-align: center;
       float: left;
@@ -85,6 +89,8 @@
 @media (min-width: 481px) {
   .users {
     padding-top: 90px;
+
+    display: block;
 
     .header {
       width: 91.2%;
@@ -134,13 +140,12 @@
       position:absolute;
       width:100vh;
       height: 70vw;
-      left: 140px;
+      left: 12%;
     }
     #scroll2 {
-      transform: rotate(90deg) translateY(-70vh);
+      transform: rotate(90deg) translateY(-80vh);
       transform-origin: top left;
       white-space:nowrap;
-      font-size:0;
     }
 
     .list {
@@ -149,9 +154,73 @@
       height: 450px;
 
       .users-list {
-        width: 10%;
+        width: 9%;
         margin: 10px auto;
       }
+    }
+
+    //Scroll down
+    .scroll-down {
+      position: absolute;
+      top: unset;
+      bottom: 15%;
+      width: 80%;
+      max-width: 270px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    .mouse {
+      display: inline-block;
+      vertical-align: middle;
+      width: 16px;
+      min-width: 16px;
+      height: 22px;
+      position: relative;
+      border: 2px solid #e50074;
+      border-radius: 12px;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 2px;
+        height: 6px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        background-color: #e50074;
+        animation: mouse-animation 2.75s ease-in-out infinite;
+      }
+    }
+
+    @keyframes mouse-animation {
+      0% {
+        transform: scale(1,0);
+        transform-origin: 50% 0;
+      }
+      20%, 80% {
+        transform: scale(1,1);
+      }
+      81% {
+        transform-origin: 50% 100%;
+      }
+      100% {
+        transform: scale(1,0);
+        transform-origin: 50% 100%;
+      }
+    }
+
+    .left,
+    .right {
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0 18px;
+      font-size: 13px;
+      font-weight: bold;
+      color: #e50074;
+      text-transform: uppercase;
     }
 
     .contact {
